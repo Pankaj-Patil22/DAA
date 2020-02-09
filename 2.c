@@ -5,10 +5,12 @@ float merge(int l,int m,int r,float a[])
     int i,j,k;
     int n1=m-l+1,n2=r-m;
     float L[n1],R[n2];
-    for(i=l;i<m;i++)
-    L[i]=a[i];
-    for(i=m+1;i<r;i++)
-    R[i]=a[i];
+    for(i=0;i<n1;i++)
+    L[i]=a[l+i];
+    for(i=0;i<n2;i++)
+    R[i]=a[m+1+i];
+
+    i=0,j=0;
 
     while(i<n1 && j<n2)
     {
@@ -44,9 +46,9 @@ float merge(int l,int m,int r,float a[])
 
 float mergesort(int l, int r,float a[])
 {
+    int m=(l+r)/2;
     if(l<r)
     {   
-        int m=(l+r)/2;
         //l-left,r-right
         mergesort(l,m,a);
         mergesort(m+1,r,a);
